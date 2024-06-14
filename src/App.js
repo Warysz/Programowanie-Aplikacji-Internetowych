@@ -1,25 +1,18 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Header } from "./Header.js";
+import { SearchBar } from "./searchbar.js";
+import { useState } from "react";
+import { RecipiesList } from "./RecipiesList.js";
 
 function App() {
+  const [recipes, setRecipes] = useState([]);
+  console.log(recipes);
   return (
     <div className="App">
       <Header></Header>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. HELLO
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar setRecipes={setRecipes}/>
+      <RecipiesList/>
     </div>
   );
 }
