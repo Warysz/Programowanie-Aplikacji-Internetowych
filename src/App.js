@@ -7,7 +7,7 @@ import { RecipiesList } from "./RecipiesList.js";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
-  console.log(recipes);
+  //console.log(recipes);
   return (
     <div className="App">
       <Header></Header>
