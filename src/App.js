@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <SearchBar setRecipes={setRecipes}/>
-      <RecipiesList/>
+      <RecipiesList recipes={recipes}/>
     </div>
   );
 }
