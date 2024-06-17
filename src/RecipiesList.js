@@ -1,5 +1,6 @@
 import { Grid, Card, CardContent,CardMedia, Typography } from "@mui/material";
 import {styled} from "@mui/system";
+import Divider from '@mui/material/Divider';
 
 const StyledCard = styled(Card)`
   height: 100%;
@@ -17,14 +18,28 @@ export const RecipiesList = ({recipes}) => {
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-        {recipe.recipe.label}
+        <Typography gutterBottom variant="h5" component="div" >
+        {recipe.recipe.label}        
         </Typography>
-                {recipe.recipe.ingredientLines.map((ingredientLine) => (
-                    <Typography gutterBottom variant="body2" component="div">
-                    {ingredientLine}
-                    </Typography>
-                ))}
+        <Divider flexItem />
+          <Typography gutterBottom variant="body2" component="div" align='left'>
+            <ul >
+              <li>
+                Calories: {Math.round(recipe.recipe.calories)}
+              </li>
+              <li>
+                Cuisine Type: {recipe.recipe.cuisineType}
+              </li>
+              <li>
+                Diet Labels: {recipe.recipe.dietLabels}
+              </li>
+              <li>
+              Total Time: {Math.round(recipe.recipe.totalTime/60 ) +1} min
+              </li>
+            </ul>
+               
+               
+            </Typography>
 
       </CardContent>
     </StyledCard>
