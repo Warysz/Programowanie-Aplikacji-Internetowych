@@ -12,7 +12,6 @@ export function SearchBar({ setRecipes }) {
       `https://api.edamam.com/api/recipes/v2?q=${query}&type=public&app_id=ed380c29&app_key=fcb2a8ef3af10bcc9e249f1987d72e64`,
     );
     const data = await response.json();
-    console.log(data);
     setRecipes(data.hits);
   }
 
