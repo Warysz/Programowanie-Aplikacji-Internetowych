@@ -29,6 +29,8 @@ export const RecipiesList = ({ recipes }) => {
   const [selectedRecipe, setRecipe] = React.useState({
     recipe: {
       label: "",
+      image: "",
+      ingredientLines: [],
     },
   });
 
@@ -52,7 +54,7 @@ export const RecipiesList = ({ recipes }) => {
           >
             <StyledCard>
               <CardMedia
-                sx={{ height: 140 }}
+                sx={{ height: 240 }}
                 image={recipe.recipe.image}
                 title="green iguana"
               />
@@ -88,8 +90,10 @@ export const RecipiesList = ({ recipes }) => {
           aria-labelledby="customized-dialog-title"
           open={open}
         >
-          <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-            {console.log(selectedRecipe)}
+          <DialogTitle
+            sx={{ m: 0, p: 2, width: 360 }}
+            id="customized-dialog-title"
+          >
             {selectedRecipe.recipe.label}
           </DialogTitle>
           <IconButton
@@ -105,12 +109,26 @@ export const RecipiesList = ({ recipes }) => {
             <CloseIcon />
           </IconButton>
           <DialogContent dividers>
-            <Typography gutterBottom></Typography>
-            <Typography gutterBottom>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur
-              et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-              auctor.
+            <StyledCard>
+              <CardMedia
+                sx={{ height: 300 }}
+                image={selectedRecipe.recipe.image}
+                title="green iguana"
+              />
+            </StyledCard>
+            <Typography
+              gutterBottom
+              variant="h5"
+              fontWeight="strong"
+              margin={2}
+            >
+              Ingredient:
             </Typography>
+            {selectedRecipe.recipe.ingredientLines.map((ingredientLine) => (
+              <Typography gutterBottom variant="body2" component="div">
+                {ingredientLine}
+              </Typography>
+            ))}
             <Typography gutterBottom></Typography>
           </DialogContent>
           <DialogActions>
