@@ -86,6 +86,7 @@ export const RecipiesList = ({ recipes }) => {
         >
           <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
             {console.log(selectedRecipe)}
+            {selectedRecipe.recipe.label}
           </DialogTitle>
           <IconButton
             aria-label="close"
