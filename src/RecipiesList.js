@@ -26,7 +26,11 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 export const RecipiesList = ({ recipes }) => {
   const [open, setOpen] = React.useState(false);
-  const [selectedRecipe, setRecipe] = React.useState([]);
+  const [selectedRecipe, setRecipe] = React.useState({
+    recipe: {
+      label: "",
+    },
+  });
 
   const handleClose = () => {
     setOpen(false);
